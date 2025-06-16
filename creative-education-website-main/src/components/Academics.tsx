@@ -37,13 +37,13 @@ const Academics = () => {
             delay={100}
           />
           
-          <AcademicLevelCard 
+{/*           <AcademicLevelCard 
             level="High School"
             grades="Grades: 9 - 12"
             description="Rigorous preparation for board examinations with specialized teaching, career guidance, and personality development."
             image="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1932&auto=format&fit=crop"
             delay={200}
-          />
+          /> */}
         </div>
         
         {/* Curriculum Highlights */}
@@ -51,11 +51,11 @@ const Academics = () => {
           <h3 className="text-2xl font-serif font-semibold text-center mb-10 text-school-navy">Curriculum Highlights</h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <CurriculumFeature
+{/*             <CurriculumFeature
               title="CBSE Curriculum"
               description="Following the Central Board of Secondary Education curriculum with enhanced learning modules."
               delay={0}
-            />
+            /> */}
             
             <CurriculumFeature
               title="Digital Learning"
