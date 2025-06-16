@@ -1,10 +1,9 @@
-
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { 
   BookOpen, 
   Dumbbell, 
   Beaker, 
-  Bus, 
+  Users, 
   Presentation, 
   Laptop, 
   Music, 
@@ -73,19 +72,18 @@ const Facilities = () => {
           />
           
           <FacilityCard 
-            icon={<Bus size={24} />}
-            title="Transportation"
-            description="Safe and convenient bus service covering major routes"
+            icon={<Users size={24} />}
+            title="Student Common Room"
+            description="Comfortable recreational space for student interactions and relaxation"
             delay={500}
           />
           
           <FacilityCard 
-  icon={<Presentation size={24} />} 
-  title="Conference Room"
-  description="Well-equipped space for meetings and events"
-  delay={600}
-/>
-
+            icon={<Presentation size={24} />} 
+            title="Conference Room"
+            description="Well-equipped space for meetings and events"
+            delay={600}
+          />
           
           <FacilityCard 
             icon={<Heart size={24} />}
