@@ -1,4 +1,3 @@
-
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Academics = () => {
@@ -20,7 +19,7 @@ const Academics = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <AcademicLevelCard 
             level="Primary School"
             grades="Grades: KG - 5"
@@ -36,43 +35,29 @@ const Academics = () => {
             image="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=2070&auto=format&fit=crop"
             delay={100}
           />
-          
-{/*           <AcademicLevelCard 
-            level="High School"
-            grades="Grades: 9 - 12"
-            description="Rigorous preparation for board examinations with specialized teaching, career guidance, and personality development."
-            image="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1932&auto=format&fit=crop"
-            delay={200}
-          /> */}
         </div>
         
         {/* Curriculum Highlights */}
         <div className="mt-20">
           <h3 className="text-2xl font-serif font-semibold text-center mb-10 text-school-navy">Curriculum Highlights</h3>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-{/*             <CurriculumFeature
-              title="CBSE Curriculum"
-              description="Following the Central Board of Secondary Education curriculum with enhanced learning modules."
-              delay={0}
-            /> */}
-            
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <CurriculumFeature
               title="Digital Learning"
               description="Smart classrooms with interactive learning tools and resources for enhanced understanding."
-              delay={100}
+              delay={0}
             />
             
             <CurriculumFeature
               title="Languages"
               description="Strong focus on English, Hindi, and Bengali to develop multilingual proficiency."
-              delay={200}
+              delay={100}
             />
             
             <CurriculumFeature
               title="STEM Education"
               description="Special emphasis on Science, Technology, Engineering, and Mathematics through practical applications."
-              delay={300}
+              delay={200}
             />
           </div>
         </div>
