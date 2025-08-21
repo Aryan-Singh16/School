@@ -144,13 +144,13 @@ const Header = () => {
                   onMouseEnter={() => setDropdownOpen('academics')}
                 >
                   Academics 
-                  <ChevronDown 
+                  {/* <ChevronDown 
                     size={16} 
                     className={`transition-transform duration-300 ${dropdownOpen === 'academics' ? 'rotate-180' : ''}`}
-                  />
+                  /> */}
                 </button>
                 
-                {dropdownOpen === 'academics' && (
+                {/* {dropdownOpen === 'academics' && (
                   <div 
                     className="absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl py-3 min-w-64 z-50 border border-blue-100 animate-in slide-in-from-top-2 duration-200"
                     onMouseLeave={closeDropdown}
@@ -161,7 +161,7 @@ const Header = () => {
                     <DropdownLink to="/faculty" icon="👨‍🏫">Faculty</DropdownLink>
                     <DropdownLink to="/achievements" icon="🏆">Achievements</DropdownLink>
                   </div>
-                )}
+                )} */}
               </div>
               
               <NavLink to="/facilities" isActive={location.pathname === '/facilities'}>Facilities</NavLink>
