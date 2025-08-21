@@ -98,35 +98,35 @@ const Gallery = () => {
   const categories = ["All", ...new Set(galleryImages.map(img => img.category))];
   
   return (
-    <section id="gallery" className="py-20 bg-white">
+    <section id="gallery" className="py-20 gradient-bg">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 
             ref={headingRef as React.RefObject<HTMLHeadingElement>} 
-            className="section-title mx-auto flex flex-col items-center justify-center"
+            className="section-title mx-auto flex flex-col items-center justify-center text-white"
           >
             School Gallery
-            <span className="after:mx-auto"></span>
+            <span className="after:mx-auto after:bg-school-gold"></span>
           </h2>
           
           <p 
             ref={textRef as React.RefObject<HTMLParagraphElement>} 
-            className="text-gray-700"
+            className="text-white/90 text-lg"
           >
             Glimpses of life at St. Maria School - celebrating learning, achievements, and joyful moments.
           </p>
         </div>
         
         {/* Filter Categories */}
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setFilter(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 ${
                 filter === category 
-                  ? 'bg-school-maroon text-white' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-school-gold text-school-navy shadow-lg' 
+                  : 'glass-panel text-white hover:bg-white/20'
               }`}
             >
               {category}
@@ -135,13 +135,13 @@ const Gallery = () => {
         </div>
         
         {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredImages.map((image, index) => (
             <GalleryImage 
               key={index}
               image={image}
               onClick={() => handleImageClick(index)}
-              delay={index * 100}
+              delay={index * 50}
             />
           ))}
         </div>
@@ -203,19 +203,29 @@ const GalleryImage = ({
   return (
     <div 
       ref={imageRef as React.RefObject<HTMLDivElement>}
-      className="relative overflow-hidden rounded-lg cursor-pointer group h-48 md:h-56"
+      className="floating-card relative overflow-hidden rounded-xl cursor-pointer group h-64 md:h-72"
       onClick={onClick}
       style={{ transitionDelay: `${delay}ms` }}
     >
       <img 
         src={image.src} 
         alt={image.alt} 
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-125 group-hover:rotate-2" 
       />
       
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-        <p className="text-white text-sm font-medium">{image.alt}</p>
-        <span className="text-white/70 text-xs">{image.category}</span>
+      <div className="absolute inset-0 bg-gradient-to-t from-school-maroon/80 via-transparent to-school-navy/20 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6">
+        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+          <p className="text-white text-lg font-medium mb-1">{image.alt}</p>
+          <span className="text-school-gold text-sm font-medium px-3 py-1 bg-white/20 rounded-full backdrop-blur-sm">
+            {image.category}
+          </span>
+        </div>
+      </div>
+      
+      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="w-8 h-8 bg-school-gold rounded-full flex items-center justify-center">
+          <span className="text-school-navy text-sm">🔍</span>
+        </div>
       </div>
     </div>
   );

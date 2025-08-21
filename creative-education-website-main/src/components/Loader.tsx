@@ -34,7 +34,7 @@ const Loader = () => {
           }}
         />
       </div>
-      <h2 className="text-2xl font-serif text-school-maroon mb-4">St. Maria School</h2>
+      <h2 className="text-2xl font-serif text-school-maroon mb-4">ST. Maria School</h2>
       <div className="flex space-x-2">
         <div className="h-3 w-3 rounded-full bg-school-maroon animate-bounce" style={{ animationDelay: '0ms' }}></div>
         <div className="h-3 w-3 rounded-full bg-school-gold animate-bounce" style={{ animationDelay: '150ms' }}></div>

@@ -5,6 +5,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import AboutPage from "./pages/AboutPage";
+import PrincipalDesk from "./pages/PrincipalDesk";
+import GalleryPage from "./pages/GalleryPage";
+import RulesPage from "./pages/RulesPage";
+import AcademicsPage from "./pages/AcademicsPage";
+import AdmissionPage from "./pages/AdmissionPage";
+import FacilitiesPage from "./pages/FacilitiesPage";
 import React from "react";
 
 // Create a new QueryClient instance for React Query
@@ -70,6 +77,13 @@ const App = () => {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/academics" element={<AcademicsPage />} />
+              <Route path="/principal-desk" element={<PrincipalDesk />} />
+              <Route path="/gallery" element={<GalleryPage />} />
+              <Route path="/rules" element={<RulesPage />} />
+              <Route path="/admissions" element={<AdmissionPage />} />
+              <Route path="/facilities" element={<FacilitiesPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

@@ -21,6 +21,12 @@ const About = () => {
             </h2>
 
             <div ref={textRef as React.RefObject<HTMLDivElement>}>
+              <div className="bg-school-maroon text-white p-4 rounded-lg mb-6">
+                <p className="font-medium text-center">
+                  🏆 Affiliated with CISCE (Council for the Indian School Certificate Examinations)
+                </p>
+              </div>
+              
               <p className="mb-6 text-gray-700 leading-relaxed">
                 ST. Maria School in Agarpara has been a pillar of educational excellence for over 24+ years. Our institution is dedicated to shaping young minds through a well-rounded approach that fosters academic excellence, strong character, and cultural values.
               </p>
