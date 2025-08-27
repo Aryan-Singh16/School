@@ -202,12 +202,29 @@ const Hero = () => {
           background: 'linear-gradient(135deg, rgba(147,51,234,0.3) 0%, rgba(79,70,229,0.2) 100%)'
         }}
       >
-        <p 
-          className="text-white font-medium text-sm sm:text-base lg:text-lg opacity-100"
-          style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.8)' }}
-        >
-          ✨ Affiliated with CISCE
-        </p>
+        <p
+  className="text-white font-semibold text-sm sm:text-base lg:text-lg tracking-wide animate-glow"
+  style={{
+    textShadow: "0 0 6px rgba(255,255,255,0.9), 0 0 12px rgba(0, 150, 255, 0.6)",
+  }}
+>
+  ✨ Affiliated To ICSE (CISCE) Code: WB493
+</p>
+
+<style>
+{`
+  @keyframes glow {
+    0% { text-shadow: 0 0 6px rgba(255,255,255,0.9), 0 0 12px rgba(0,150,255,0.6); }
+    50% { text-shadow: 0 0 12px rgba(255,255,255,1), 0 0 20px rgba(0,150,255,0.9); }
+    100% { text-shadow: 0 0 6px rgba(255,255,255,0.9), 0 0 12px rgba(0,150,255,0.6); }
+  }
+
+  .animate-glow {
+    animation: glow 2.5s ease-in-out infinite;
+  }
+`}
+</style>
+
       </div>
 
       <div

@@ -61,7 +61,7 @@ const Academics = () => {
             />
             
             <CurriculumFeature
-              title="CISCE Affiliation"
+              title="ICSE Affiliation"
               description="Affiliated with Council for the Indian School Certificate Examinations for quality education standards."
               delay={100}
             />
@@ -160,8 +160,8 @@ const SyllabusSection = () => {
       <h3 className="text-lg md:text-xl font-serif font-semibold mb-3 md:mb-4 text-school-maroon">📚 Syllabus</h3>
       <div className="space-y-3 md:space-y-4">
         <div className="border-l-4 border-school-gold pl-3 md:pl-4">
-          <h4 className="font-medium text-school-navy text-sm md:text-base">CISCE Curriculum</h4>
-          <p className="text-xs md:text-sm text-gray-600">Following ICSE and ISC Board standards</p>
+          <h4 className="font-medium text-school-navy text-sm md:text-base">ICSE Curriculum</h4>
+          <p className="text-xs md:text-sm text-gray-600">Following ICSE Board standards</p>
         </div>
         <div className="border-l-4 border-school-teal pl-3 md:pl-4">
           <h4 className="font-medium text-school-navy text-sm md:text-base">Core Subjects</h4>
@@ -201,7 +201,7 @@ const SchoolTimingSection = () => {
         
         <div className="p-2 md:p-3 bg-school-gold/20 rounded-lg mt-3 md:mt-4">
           <p className="text-xs md:text-sm text-school-navy text-center">
-            <strong>Office Hours:</strong> 9:00 AM - 3:00 PM
+            <strong>Office Hours:</strong> 9:30 AM - 2:30 PM
           </p>
         </div>
       </div>
@@ -236,7 +236,7 @@ const RoutineSection = ({ currentDay }: { currentDay: string }) => {
               <span className={`text-xs md:text-sm ${
                 isToday ? 'text-white/90 font-medium' : 'text-gray-600'
               }`}>
-                Office: 9:00 AM - 3:00 PM
+                Office: 9:30 AM - 2:30 PM
               </span>
             </div>
           );

@@ -7,8 +7,8 @@ const AcademicsPage = () => {
   return (
     <>
       <Helmet>
-        <title>Academics - St. Maria School | CISCE Affiliated School</title>
-        <meta name="description" content="Explore St. Maria School's academic programs, curriculum, and educational approach. CISCE affiliated school offering quality education." />
+        <title>Academics - St. Maria School | ICSE (CISCE) Affiliated School</title>
+        <meta name="description" content="Explore St. Maria School's academic programs, curriculum, and educational approach. ICSE (CISCE) affiliated school offering quality education." />
       </Helmet>
       
       <Header />

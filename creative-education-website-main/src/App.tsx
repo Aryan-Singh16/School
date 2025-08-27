@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
+import ScrollToTop from './components/ScrollToTop';
 import NotFound from "./pages/NotFound";
 import AboutPage from "./pages/AboutPage";
 import PrincipalDesk from "./pages/PrincipalDesk";
@@ -75,6 +76,7 @@ const App = () => {
           </Helmet>
 
           <BrowserRouter>
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<AboutPage />} />

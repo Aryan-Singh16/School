@@ -8,7 +8,7 @@ const AboutPage = () => {
     <>
       <Helmet>
         <title>About Us - St. Maria School | Excellence in Education</title>
-        <meta name="description" content="Learn about St. Maria School's mission, vision, and commitment to providing quality education in Agarpara. Affiliated with CISCE." />
+        <meta name="description" content="Learn about St. Maria School's mission, vision, and commitment to providing quality education in Agarpara. Affiliated with ICSE (CISCE)." />
       </Helmet>
       
       <Header />

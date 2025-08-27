@@ -10,8 +10,8 @@ const sampleNotices: NoticeProps[] = [
   
   {
     id: "1",
-    title: "Affiliation with CISCE, New Delhi",
-    content: "We are proud to announce that ST. Maria School is now affiliated with CISCE, New Delhi.",
+    title: "Affiliation To ICSE (CISCE), New Delhi",
+    content: "We are proud to announce that ST. Maria School is now affiliated to ICSE (CISCE), New Delhi.",
     date: "Feb 10, 2025",
     category: "announcement"
   },

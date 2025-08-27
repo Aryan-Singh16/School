@@ -1,5 +1,4 @@
-
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
@@ -72,6 +71,11 @@ const Gallery = () => {
   
   const headingRef = useScrollAnimation();
   const textRef = useScrollAnimation({ threshold: 0.2 });
+  
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   
   const filteredImages = filter === "All" 
     ? galleryImages 

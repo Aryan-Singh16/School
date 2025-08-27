@@ -29,9 +29,9 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>ST. Maria School - CISCE Affiated | Excellence in Education | Agarpara</title>
-        <meta name="description" content="ST. Maria School in Agarpara is a premier CISCE affiliated institution providing quality education with focus on academic excellence, character development, and holistic growth. Join our prestigious ICSE school with world-class facilities." />
-        <meta name="keywords" content="ST. Maria School, Agarpara, best school in Agarpara, CISCE school, ICSE school, CISCE affiliated school, school admission, quality education, ICSE board, ISC board, Agarpara CISCE school" />
+        <title>ST. Maria School - ICSE (CISCE) Affiated | Excellence in Education | Agarpara</title>
+        <meta name="description" content="ST. Maria School in Agarpara is a premier ICSE (CISCE) affiliated institution providing quality education with focus on academic excellence, character development, and holistic growth. Join our prestigious ICSE school with world-class facilities." />
+        <meta name="keywords" content="ST. Maria School, Agarpara, best school in Agarpara, ICSE (CISCE) school, ICSE school, ICSE (CISCE) affiliated school, school admission, quality education, ICSE board, ISC board, Agarpara ICSE (CISCE) school" />
         <meta name="author" content="ST. Maria School" />
         
         {/* Structured Data for School */}
@@ -40,7 +40,7 @@ const Index = () => {
             "@context": "https://schema.org",
             "@type": "EducationalOrganization",
             "name": "ST. Maria School",
-            "description": "Premier CISCE affiliated school in Agarpara providing quality ICSE and CISCE education",
+            "description": "Premier ICSE (CISCE) affiliated school in Agarpara providing quality ICSE and ICSE (CISCE) education",
             "url": "https://www.stmariaschool.in/",
             // "logo": "https://www.stmariaschool.in/logo.png",
             "address": {
@@ -49,30 +49,30 @@ const Index = () => {
               "addressRegion": "West Bengal",
               "addressCountry": "IN"
             },
-            "educationalCredentialAwarded": ["ICSE", "CISCE"],
-            "hasCredential": "CISCE Affiliated"
+            "educationalCredentialAwarded": ["ICSE", "ICSE (CISCE)"],
+            "hasCredential": "ICSE (CISCE) Affiliated"
           })}
         </script>
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.stmariaschool.in/" />
-        <meta property="og:title" content="St. Maria School - Premier CISCE Affiliated School | Agarpara" />
-        <meta property="og:description" content="Join St. Maria School in Agarpara - a prestigious CISCE affiliated institution offering ICSE and ISC education with focus on academic excellence and holistic development." />
+        <meta property="og:title" content="St. Maria School - Premier ICSE (CISCE) Affiliated School | Agarpara" />
+        <meta property="og:description" content="Join St. Maria School in Agarpara - a prestigious ICSE (CISCE) affiliated institution offering ICSE and ISC education with focus on academic excellence and holistic development." />
         <meta property="og:image" content="/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="St. Maria School - CISCE Affiliated School in Agarpara" />
+        <meta property="og:image:alt" content="St. Maria School - ICSE (CISCE) Affiliated School in Agarpara" />
         <meta property="og:site_name" content="St. Maria School" />
         <meta property="og:locale" content="en_IN" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.stmariaschool.in/" />
-        <meta property="twitter:title" content="ST. Maria School - Premier CISCE Affiliated School | Agarpara" />
-        <meta property="twitter:description" content="Join ST. Maria School in Agarpara - a prestigious CISCE affiliated institution offering ICSE and CISCE education with focus on academic excellence and holistic development." />
+        <meta property="twitter:title" content="ST. Maria School - Premier ICSE (CISCE) Affiliated School | Agarpara" />
+        <meta property="twitter:description" content="Join ST. Maria School in Agarpara - a prestigious ICSE (CISCE) affiliated institution offering ICSE and ICSE (CISCE) education with focus on academic excellence and holistic development." />
         <meta property="twitter:image" content="/og-image.png" />
-        <meta property="twitter:image:alt" content="ST. Maria School - CISCE Affiliated School in Agarpara" />
+        <meta property="twitter:image:alt" content="ST. Maria School - ICSE (CISCE) Affiliated School in Agarpara" />
 
         {/* Additional SEO Meta Tags */}
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -84,7 +84,7 @@ const Index = () => {
         <meta name="ICBM" content="22.6536, 88.3706" />
         
         {/* Educational specific meta tags */}
-        <meta name="education.curriculum" content="CISCE, ICSE, ISC" />
+        <meta name="education.curriculum" content="ICSE (CISCE), ICSE, ISC" />
         <meta name="education.level" content="Primary, Secondary, Higher Secondary" />
         <meta name="education.type" content="Private School" />
 
