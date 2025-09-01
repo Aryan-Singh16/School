@@ -10,12 +10,14 @@ import Admission from '../components/Admission';
 import Footer from '../components/Footer';
 import Loader from '../components/Loader';
 import { Helmet } from 'react-helmet-async';
-import { X, Star, Sparkles, Calendar } from 'lucide-react';
+import { X, Star, Sparkles, Calendar, Clock } from 'lucide-react';
 
-// Announcement Popup Component
+// Enhanced Announcement Popup Component with Visible Timer
 const AnnouncementPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(7); // 7 seconds countdown
+  const [progress, setProgress] = useState(100); // Progress percentage
 
   useEffect(() => {
     // Show popup after loader completes + small delay
@@ -24,17 +26,29 @@ const AnnouncementPopup = () => {
       setIsAnimating(true);
     }, 2500); // Shows after loader (2000ms) + 500ms delay
 
-    // Hide popup after 7 seconds
-    const hideTimer = setTimeout(() => {
-      setIsAnimating(false);
-      setTimeout(() => setIsVisible(false), 300);
-    }, 9500); // 2500ms delay + 7000ms display time
-
-    return () => {
-      clearTimeout(showTimer);
-      clearTimeout(hideTimer);
-    };
+    return () => clearTimeout(showTimer);
   }, []);
+
+  useEffect(() => {
+    if (!isAnimating) return;
+
+    // Countdown and progress tracking
+    const interval = setInterval(() => {
+      setTimeLeft(prev => {
+        const newTime = prev - 0.1;
+        setProgress((newTime / 7) * 100);
+        
+        if (newTime <= 0) {
+          setIsAnimating(false);
+          setTimeout(() => setIsVisible(false), 300);
+          return 0;
+        }
+        return newTime;
+      });
+    }, 100); // Update every 100ms for smooth animation
+
+    return () => clearInterval(interval);
+  }, [isAnimating]);
 
   const handleClose = () => {
     setIsAnimating(false);
@@ -53,7 +67,7 @@ const AnnouncementPopup = () => {
         onClick={handleClose}
       />
       
-      {/* Enhanced Popup with better responsiveness */}
+      {/* Enhanced Popup with visible timer */}
       <div 
         className={`relative bg-white rounded-3xl shadow-2xl max-w-sm sm:max-w-md lg:max-w-lg w-full mx-4 transform transition-all duration-300 ${
           isAnimating 
@@ -69,6 +83,38 @@ const AnnouncementPopup = () => {
           <X className="h-5 w-5 text-gray-600 group-hover:text-gray-800 transition-colors" />
         </button>
 
+        {/* Circular Timer in top-left corner */}
+        {/* <div className="absolute top-4 left-4 z-20">
+          <div className="relative w-12 h-12 sm:w-14 sm:h-14"> */}
+            {/* Background circle */}
+            {/* <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+              <path
+                className="text-white opacity-30"
+                stroke="currentColor"
+                strokeWidth="3"
+                fill="none"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              /> */}
+              {/* Progress circle */}
+              {/* <path
+                className="text-white transition-all duration-100 ease-linear"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                fill="none"
+                strokeDasharray={`${progress}, 100`}
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+            </svg> */}
+            {/* Timer number */}
+            {/* <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-white font-bold text-xs sm:text-sm">
+                {Math.ceil(timeLeft)}
+              </span>
+            </div>
+          </div>
+        </div>  */}
+
         {/* Header with enhanced beauty */}
         <div className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white p-6 sm:p-8 rounded-t-3xl overflow-hidden">
           {/* Animated background elements */}
@@ -82,7 +128,7 @@ const AnnouncementPopup = () => {
             <div className="w-24 sm:w-32 h-24 sm:h-32 rounded-full border-4 border-white animate-spin" style={{animationDuration: '20s'}}></div>
           </div>
           
-          <div className="relative z-10 text-center">
+          <div className="relative z-10 text-center pt-4">
             <div className="flex items-center justify-center gap-2 mb-3">
               <Star className="h-5 sm:h-6 w-5 sm:w-6 text-yellow-300 animate-pulse" />
               <span className="text-xs sm:text-sm font-bold uppercase tracking-wider bg-white bg-opacity-20 px-3 py-1 rounded-full">
@@ -99,6 +145,23 @@ const AnnouncementPopup = () => {
 
         {/* Enhanced Content with better responsiveness */}
         <div className="p-6 sm:p-8">
+          {/* Timer indicator banner */}
+          {/* <div className="mb-4 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-3 sm:p-4">
+            <div className="flex items-center justify-center gap-2 text-blue-700">
+              <Clock className="h-4 w-4 animate-pulse" />
+              <span className="text-sm font-medium">
+                Auto-closing in {Math.ceil(timeLeft)} seconds
+              </span>
+            </div>
+            {/* Horizontal progress bar */}
+            {/* <div className="mt-2 w-full bg-blue-100 rounded-full h-2 overflow-hidden">
+              <div 
+                className="h-full bg-gradient-to-r from-blue-400 to-indigo-500 transition-all duration-100 ease-linear rounded-full"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+          </div> */}
+
           <div className="text-center mb-6">
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
               🌟 Admissions for the next academic year are now open! 
@@ -154,17 +217,28 @@ const AnnouncementPopup = () => {
           </div>
         </div>
 
-        {/* Beautiful progress bar with 7-second duration */}
-        <div className="h-2 bg-gradient-to-r from-gray-100 to-gray-200 rounded-b-3xl overflow-hidden">
+        {/* Enhanced bottom progress bar with gradient and glow */}
+        <div className="h-3 bg-gradient-to-r from-gray-100 to-gray-200 rounded-b-3xl overflow-hidden relative">
           <div 
-            className={`h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all ease-linear shadow-lg ${
-              isAnimating ? 'w-0' : 'w-full'
-            }`}
+            className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all ease-linear shadow-lg relative overflow-hidden"
             style={{ 
-              transitionDuration: isAnimating ? '7000ms' : '0ms',
-              boxShadow: '0 0 10px rgba(168, 85, 247, 0.4)'
+              width: `${progress}%`,
+              transitionDuration: '100ms',
+              boxShadow: '0 0 15px rgba(168, 85, 247, 0.6)'
             }}
-          />
+          >
+            {/* Animated shimmer effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 animate-pulse"></div>
+          </div>
+          
+          {/* Floating timer badge */}
+          <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
+            <div className="bg-white rounded-full px-2 py-1 shadow-md border border-gray-200">
+              <span className="text-xs font-bold text-gray-700">
+                {Math.ceil(timeLeft)}s
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
