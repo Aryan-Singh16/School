@@ -10,6 +10,166 @@ import Admission from '../components/Admission';
 import Footer from '../components/Footer';
 import Loader from '../components/Loader';
 import { Helmet } from 'react-helmet-async';
+import { X, Star, Sparkles, Calendar } from 'lucide-react';
+
+// Announcement Popup Component
+const AnnouncementPopup = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    // Show popup after loader completes + small delay
+    const showTimer = setTimeout(() => {
+      setIsVisible(true);
+      setIsAnimating(true);
+    }, 2500); // Shows after loader (2000ms) + 500ms delay
+
+    // Hide popup after 7 seconds
+    const hideTimer = setTimeout(() => {
+      setIsAnimating(false);
+      setTimeout(() => setIsVisible(false), 300);
+    }, 9500); // 2500ms delay + 7000ms display time
+
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+    };
+  }, []);
+
+  const handleClose = () => {
+    setIsAnimating(false);
+    setTimeout(() => setIsVisible(false), 300);
+  };
+
+  if (!isVisible) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      {/* Backdrop */}
+      <div 
+        className={`absolute inset-0 bg-black transition-opacity duration-300 ${
+          isAnimating ? 'opacity-50' : 'opacity-0'
+        }`}
+        onClick={handleClose}
+      />
+      
+      {/* Enhanced Popup with better responsiveness */}
+      <div 
+        className={`relative bg-white rounded-3xl shadow-2xl max-w-sm sm:max-w-md lg:max-w-lg w-full mx-4 transform transition-all duration-300 ${
+          isAnimating 
+            ? 'scale-100 opacity-100 translate-y-0' 
+            : 'scale-95 opacity-0 translate-y-4'
+        }`}
+      >
+        {/* Enhanced Close button */}
+        <button
+          onClick={handleClose}
+          className="absolute top-4 right-4 p-3 rounded-full bg-white bg-opacity-90 hover:bg-opacity-100 transition-all duration-200 z-20 shadow-lg hover:shadow-xl group"
+        >
+          <X className="h-5 w-5 text-gray-600 group-hover:text-gray-800 transition-colors" />
+        </button>
+
+        {/* Header with enhanced beauty */}
+        <div className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white p-6 sm:p-8 rounded-t-3xl overflow-hidden">
+          {/* Animated background elements */}
+          <div className="absolute top-0 right-0 opacity-30 animate-pulse">
+            <Sparkles className="h-16 sm:h-20 w-16 sm:w-20" />
+          </div>
+          <div className="absolute bottom-0 left-0 opacity-20 animate-bounce">
+            <Star className="h-12 sm:h-16 w-12 sm:w-16" />
+          </div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-10">
+            <div className="w-24 sm:w-32 h-24 sm:h-32 rounded-full border-4 border-white animate-spin" style={{animationDuration: '20s'}}></div>
+          </div>
+          
+          <div className="relative z-10 text-center">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Star className="h-5 sm:h-6 w-5 sm:w-6 text-yellow-300 animate-pulse" />
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                🎉 Special Announcement
+              </span>
+              <Star className="h-5 sm:h-6 w-5 sm:w-6 text-yellow-300 animate-pulse" />
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold mb-2 animate-pulse">
+              Admission Open for 2026-27
+            </h2>
+            <div className="w-20 sm:w-24 h-1 bg-yellow-300 mx-auto rounded-full"></div>
+          </div>
+        </div>
+
+        {/* Enhanced Content with better responsiveness */}
+        <div className="p-6 sm:p-8">
+          <div className="text-center mb-6">
+            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+              🌟 Admissions for the next academic year are now open! 
+            </p>
+            <p className="text-gray-600 mt-2 text-sm sm:text-base">
+              Secure your child's future with quality ICSE education at ST. Maria School.
+            </p>
+          </div>
+          
+          {/* Beautiful highlighted discount section */}
+          <div className="relative overflow-hidden bg-gradient-to-br from-orange-100 via-red-50 to-pink-100 border-2 border-orange-300 rounded-2xl p-4 sm:p-6 mb-6 shadow-lg">
+            {/* Decorative background pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 left-0 w-full h-full" 
+                   style={{backgroundImage: 'radial-gradient(circle at 20% 80%, rgba(255,165,0,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,69,0,0.3) 0%, transparent 50%)'}}>
+              </div>
+            </div>
+            
+            <div className="relative z-10">
+              <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3">
+                <span className="inline-block w-2 sm:w-3 h-2 sm:h-3 bg-orange-500 rounded-full animate-ping"></span>
+                <span className="text-orange-800 font-bold text-xs sm:text-sm uppercase tracking-wider bg-orange-200 px-3 sm:px-4 py-1 rounded-full shadow-sm">
+                  🎁 Limited Time Offer
+                </span>
+                <span className="inline-block w-2 sm:w-3 h-2 sm:h-3 bg-orange-500 rounded-full animate-ping"></span>
+              </div>
+              
+              <div className="text-center">
+                <p className="text-orange-900 font-bold text-lg sm:text-xl mb-2 leading-tight">
+                  Special Discount for admission
+                </p>
+                <p className="text-orange-800 font-bold text-base sm:text-lg">
+                  before 31st October 2025
+                </p>
+              </div>
+              
+              <div className="mt-4 flex items-center justify-center">
+                <div className="bg-orange-200 px-3 sm:px-4 py-2 rounded-full">
+                  <span className="text-orange-800 font-semibold text-xs sm:text-sm flex items-center gap-1">
+                    <Calendar className="h-3 sm:h-4 w-3 sm:w-4" />
+                    Hurry! Offer ends Oct 31, 2025
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* School highlight */}
+          <div className="text-center">
+            <p className="text-gray-600 text-xs sm:text-sm font-medium">
+              🏫 ICSE (CISCE) Affiliated Institution • Quality Education Since Years
+            </p>
+          </div>
+        </div>
+
+        {/* Beautiful progress bar with 7-second duration */}
+        <div className="h-2 bg-gradient-to-r from-gray-100 to-gray-200 rounded-b-3xl overflow-hidden">
+          <div 
+            className={`h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all ease-linear shadow-lg ${
+              isAnimating ? 'w-0' : 'w-full'
+            }`}
+            style={{ 
+              transitionDuration: isAnimating ? '7000ms' : '0ms',
+              boxShadow: '0 0 10px rgba(168, 85, 247, 0.4)'
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Index = () => {
   console.log("Index component rendering");
@@ -44,7 +204,8 @@ const Index = () => {
             "url": "https://www.stmariaschool.in/",
             // "logo": "https://www.stmariaschool.in/logo.png",
             "address": {
-              "@type": "Tarapukur Main Road, Agarpara, Kolkata-700109",
+              "@type": "PostalAddress",
+              "streetAddress": "Tarapukur Main Road, Agarpara, Kolkata-700109",
               "addressLocality": "Agarpara",
               "addressRegion": "West Bengal",
               "addressCountry": "IN"
@@ -116,6 +277,9 @@ const Index = () => {
         </main>
         <Footer />
       </div>
+
+      {/* Announcement Popup - Only shows after loader completes */}
+      {!showLoader && <AnnouncementPopup />}
     </>
   );
 };

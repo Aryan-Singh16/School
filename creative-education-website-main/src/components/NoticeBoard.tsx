@@ -1,28 +1,26 @@
-
 import { useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import Notice, { NoticeProps } from "./Notice";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Bell, CalendarClock, Info } from "lucide-react";
 
-// Sample notices data
+// Enhanced notices data with structured content
 const sampleNotices: NoticeProps[] = [
-  
   {
     id: "1",
+    title: "Admission Open for 2026-27",
+    content: "Admissions for the next academic year are now open.",
+    highlight: "Special Discount for admission before 31st October 2025",
+    date: "1 Sept, 2025",
+    category: "announcement"
+  },
+  {
+    id: "2",
     title: "Affiliation To ICSE (CISCE), New Delhi",
     content: "We are proud to announce that ST. Maria School is now affiliated to ICSE (CISCE), New Delhi.",
     date: "Feb 10, 2025",
     category: "announcement"
   },
-  {
-    id: "2",
-    title: "Admission Open for 2025-26",
-    content: "Admissions for the next academic year are now open.",
-    date: "Jan 25, 2025",
-    category: "announcement"
-  },
-  
 ];
 
 const NoticeBoard = () => {

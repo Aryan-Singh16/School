@@ -1,50 +1,66 @@
-
-import { CalendarClock, Info, Bell } from "lucide-react";
-import { cn } from "@/lib/utils";
+import React from "react";
+import { Calendar, Bell, AlertTriangle } from "lucide-react";
 
 export interface NoticeProps {
   id: string;
   title: string;
   content: string;
+  highlight?: string; // New optional prop for highlighted text
   date: string;
-  category: "event" | "announcement" | "important";
+  category: "announcement" | "event" | "important";
 }
 
-const Notice = ({ title, content, date, category }: NoticeProps) => {
+const Notice: React.FC<NoticeProps> = ({ title, content, highlight, date, category }) => {
   const getCategoryIcon = () => {
     switch (category) {
-      case "event":
-        return <CalendarClock className="h-5 w-5 text-blue-500" />;
-      case "important":
-        return <Info className="h-5 w-5 text-red-500" />;
       case "announcement":
+        return <Bell className="h-4 w-4" />;
+      case "event":
+        return <Calendar className="h-4 w-4" />;
+      case "important":
+        return <AlertTriangle className="h-4 w-4" />;
       default:
-        return <Bell className="h-5 w-5 text-amber-500" />;
+        return <Bell className="h-4 w-4" />;
     }
   };
 
   const getCategoryColor = () => {
     switch (category) {
-      case "event":
-        return "bg-blue-50 border-blue-200";
-      case "important":
-        return "bg-red-50 border-red-200";
       case "announcement":
+        return "text-blue-600 bg-blue-50 border-blue-200";
+      case "event":
+        return "text-green-600 bg-green-50 border-green-200";
+      case "important":
+        return "text-red-600 bg-red-50 border-red-200";
       default:
-        return "bg-amber-50 border-amber-200";
+        return "text-blue-600 bg-blue-50 border-blue-200";
     }
   };
 
   return (
-    <div className={cn("p-4 rounded-lg border shadow-sm mb-3", getCategoryColor())}>
-      <div className="flex items-center justify-between mb-2">
+    <div className={`border rounded-lg p-4 hover:shadow-md transition-shadow duration-200 ${getCategoryColor()}`}>
+      <div className="flex items-start justify-between mb-2">
         <div className="flex items-center gap-2">
           {getCategoryIcon()}
-          <h3 className="font-semibold text-lg">{title}</h3>
+          <h3 className="font-semibold text-gray-900">{title}</h3>
         </div>
-        <span className="text-xs text-gray-500">{date}</span>
+        <span className="text-sm text-gray-500 flex items-center gap-1">
+          <Calendar className="h-3 w-3" />
+          {date}
+        </span>
       </div>
-      <p className="text-gray-700">{content}</p>
+      
+      <div className="text-gray-700 leading-relaxed">
+        <p className="mb-2">{content}</p>
+        {highlight && (
+          <div className="mt-3 p-3 bg-gradient-to-r from-orange-100 to-red-100 border-l-4 border-orange-500 rounded-r-lg">
+            <p className="text-orange-800 font-semibold flex items-center gap-2">
+              <span className="inline-block w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
+              {highlight}
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
