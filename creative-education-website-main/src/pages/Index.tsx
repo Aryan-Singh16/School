@@ -194,7 +194,7 @@ const AnnouncementPopup = () => {
                   Special Discount for admission
                 </p>
                 <p className="text-orange-800 font-bold text-base sm:text-lg">
-                  before 31st October 2025
+                  before 30th November 2025
                 </p>
               </div>
               
@@ -202,7 +202,7 @@ const AnnouncementPopup = () => {
                 <div className="bg-orange-200 px-3 sm:px-4 py-2 rounded-full">
                   <span className="text-orange-800 font-semibold text-xs sm:text-sm flex items-center gap-1">
                     <Calendar className="h-3 sm:h-4 w-3 sm:w-4" />
-                    Hurry! Offer ends Oct 31, 2025
+                    Hurry! Offer ends Nov 30 , 2025
                   </span>
                 </div>
               </div>
