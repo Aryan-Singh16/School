@@ -202,7 +202,7 @@ const AnnouncementPopup = () => {
                 <div className="bg-orange-200 px-3 sm:px-4 py-2 rounded-full">
                   <span className="text-orange-800 font-semibold text-xs sm:text-sm flex items-center gap-1">
                     <Calendar className="h-3 sm:h-4 w-3 sm:w-4" />
-                    Hurry! Offer ends Nov 30 , 2025
+                    Hurry! Offer ends Soon.
                   </span>
                 </div>
               </div>
