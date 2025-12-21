@@ -193,9 +193,9 @@ const AnnouncementPopup = () => {
                 <p className="text-orange-900 font-bold text-lg sm:text-xl mb-2 leading-tight">
                   Special Discount for admission
                 </p>
-                <p className="text-orange-800 font-bold text-base sm:text-lg">
-                  before 30th November 2025
-                </p>
+                {/* <p className="text-orange-800 font-bold text-base sm:text-lg">
+                
+                </p> */}
               </div>
               
               <div className="mt-4 flex items-center justify-center">

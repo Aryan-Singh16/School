@@ -10,8 +10,8 @@ const sampleNotices: NoticeProps[] = [
     id: "1",
     title: "Admission Open for 2026-27",
     content: "Admissions for the next academic year are now open.",
-    highlight: "Special Discount for admission before 30th November 2025",
-    date: "1 Sept, 2025",
+    highlight: "Special Discount for admission",
+    date: "1 Dec, 2025",
     category: "announcement"
   },
   {
