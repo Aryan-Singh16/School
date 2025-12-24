@@ -13,6 +13,114 @@ const galleryImages = [
     description: "Modern classroom environment fostering interactive learning"
   },
   {
+    src: "/images/CR-1.jpeg",
+    alt: "christmas carnival",
+    category: "Christmas Carnival",
+    description: "Christmas Carnival celebrations filled with joy and festive decorations"
+  },
+  {
+    src: "/images/CR-2.jpeg",
+    alt: "christmas carnival",
+    category: "Christmas Carnival",
+    description: "Students and staff enjoying the vibrant Christmas Carnival atmosphere"
+  },
+  {
+    src: "/images/CR-3.jpeg",
+    alt: "christmas carnival",
+    category: "Christmas Carnival",
+    description: "Colorful stalls and activities during the Christmas Carnival"
+  },
+  {
+    src: "/images/CR-4.jpeg",
+    alt: "christmas carnival",
+    category: "Christmas Carnival",
+    description: "Fun games and festive moments from the Christmas Carnival"
+  },
+  {
+    src: "/images/CR-5.jpeg",
+    alt: "christmas carnival",
+    category: "Christmas Carnival",
+    description: "Students participating enthusiastically in Christmas Carnival events"
+  },
+  {
+    src: "/images/CR-6.jpeg",
+    alt: "christmas carnival",
+    category: "Christmas Carnival",
+    description: "Beautifully decorated spaces for the Christmas Carnival celebration"
+  },
+  {
+    src: "/images/CR-7.jpeg",
+    alt: "christmas carnival",
+    category: "Christmas Carnival",
+    description: "Lively performances and cheerful gatherings at the Christmas Carnival"
+  },
+  {
+    src: "/images/CR-8.jpeg",
+    alt: "christmas carnival",
+    category: "Christmas Carnival",
+    description: "Memorable moments captured during the Christmas Carnival festivities"
+  },
+  {
+    src: "/images/SCHOOL_BUILDING_FRONT.jpg",
+    alt: "school building front",
+    category: "Campus",
+    description: "Front view of the school building showcasing the campus architecture"
+  },
+  {
+    src: "/images/BACK_GROUND.jpg",
+    alt: "school background",
+    category: "Campus",
+    description: "Beautiful background view of the school campus surroundings"
+  },
+  {
+    src: "/images/BIOLOGY.jpg",
+    alt: "biology lab",
+    category: "Academics",
+    description: "Biology laboratory equipped for practical and experimental learning"
+  },
+  {
+    src: "/images/CHEMISTRY.jpg",
+    alt: "chemistry lab",
+    category: "Academics",
+    description: "Chemistry lab designed for safe and effective scientific experiments"
+  },
+  {
+    src: "/images/COMPUTER.jpg",
+    alt: "computer lab",
+    category: "Academics",
+    description: "Computer lab with modern systems supporting digital education"
+  },
+  {
+    src: "/images/EXAMINATION_HALL.jpg",
+    alt: "examination hall",
+    category: "Facilities",
+    description: "Spacious examination hall ensuring a calm and organized environment"
+  },
+  {
+    src: "/images/FRONT_GROUND.jpg",
+    alt: "school ground",
+    category: "Sports",
+    description: "Front ground area used for sports and outdoor activities"
+  },
+  {
+    src: "/images/LIBRARY.jpg",
+    alt: "school library",
+    category: "Facilities",
+    description: "Well-stocked library encouraging reading and independent learning"
+  },
+  {
+    src: "/images/PHYSICS.jpg",
+    alt: "physics lab",
+    category: "Academics",
+    description: "Physics lab supporting hands-on learning and experimentation"
+  },
+  {
+    src: "/images/SCHOOL_BUILDING_BACK1.jpg",
+    alt: "school building back",
+    category: "Campus",
+    description: "Rear view of the school building highlighting campus infrastructure"
+  },
+  {
     src: "/images/acad.jpeg",
     alt: "classroom",
     category: "Academics",
