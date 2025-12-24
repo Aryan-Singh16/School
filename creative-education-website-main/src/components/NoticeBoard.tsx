@@ -15,12 +15,19 @@ const sampleNotices: NoticeProps[] = [
     category: "announcement"
   },
   {
-    id: "2",
+    id: "3",
     title: "Affiliation To ICSE (CISCE), New Delhi",
     content: "We are proud to announce that ST. Maria School is now affiliated to ICSE (CISCE), New Delhi.",
     date: "Feb 10, 2025",
     category: "announcement"
   },
+  {
+  id: "2",
+  title: "Christmas Carnival 2025 Celebration",
+  content: "ST. Maria School successfully celebrated Christmas Carnival 2025 on 22nd December 2025 within the school campus. The event was filled with joy and enthusiasm, featuring fun activities, games, cultural performances, and beautiful festive decorations.",
+  date: "Dec 22, 2025",
+  category: "event"
+}
 ];
 
 const NoticeBoard = () => {
