@@ -6,6 +6,7 @@ import Academics from '../components/Academics';
 import Facilities from '../components/Facilities';
 import Testimonials from '../components/Testimonials';
 import NoticeBoard from '../components/NoticeBoard';
+import MovingGallery from '../components/MovingGallery';
 import Admission from '../components/Admission';
 import Footer from '../components/Footer';
 import Loader from '../components/Loader';
@@ -346,6 +347,7 @@ const Index = () => {
           <Academics />
           <Facilities />
           <NoticeBoard />
+          <MovingGallery />
           <Testimonials />
           <Admission />
         </main>

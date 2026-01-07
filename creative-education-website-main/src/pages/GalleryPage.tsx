@@ -67,12 +67,6 @@ const galleryImages = [
     description: "Front view of the school building showcasing the campus architecture"
   },
   {
-    src: "/images/BACK_GROUND.jpg",
-    alt: "school background",
-    category: "Campus",
-    description: "Beautiful background view of the school campus surroundings"
-  },
-  {
     src: "/images/BIOLOGY.jpg",
     alt: "biology lab",
     category: "Academics",
@@ -127,12 +121,6 @@ const galleryImages = [
     description: "Well-equipped academic spaces for quality education"
   },
   {
-    src: "/images/lib.jpeg",
-    alt: "Students studying in library",
-    category: "Library",
-    description: "Peaceful study environment with extensive resources"
-  },
-  {
     src: "/images/science.jpeg",
     alt: "Science lab",
     category: "Science",
@@ -155,36 +143,6 @@ const galleryImages = [
     alt: "Science lab",
     category: "Science",
     description: "Professional-grade science lab for innovative research"
-  },
-  {
-    src: "/images/campus.jpeg",
-    alt: "School campus",
-    category: "Campus",
-    description: "Beautiful campus grounds providing inspiring learning environment"
-  },
-  {
-    src: "/images/campus2.jpeg",
-    alt: "School campus",
-    category: "Campus",
-    description: "Scenic campus areas for outdoor activities and relaxation"
-  },
-  {
-    src: "/images/campus3.jpeg",
-    alt: "School campus",
-    category: "Campus",
-    description: "Well-maintained campus facilities and infrastructure"
-  },
-  {
-    src: "/images/tech.jpeg",
-    alt: "Computer lab",
-    category: "Technology",
-    description: "Modern computing facilities for digital literacy"
-  },
-  {
-    src: "/images/tech2.jpeg",
-    alt: "Computer lab",
-    category: "Technology",
-    description: "Advanced technology lab for programming and innovation"
   }
 ];
 
