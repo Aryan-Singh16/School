@@ -62,6 +62,21 @@ const galleryImages = [
     src: "/images/tech2.jpeg",
     alt: "Computer lab",
     category: "Technology"
+  },
+  {
+    src: "/images/Sport-1.jpeg",
+    alt: "Sports Event",
+    category: "Sports"
+  },
+  {
+    src: "/images/sport-2.jpeg",
+    alt: "Sports Activity",
+    category: "Sports"
+  },
+  {
+    src: "/images/sport-3.jpeg",
+    alt: "Sports Game",
+    category: "Sports"
   }
 ];
 

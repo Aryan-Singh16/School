@@ -143,6 +143,24 @@ const galleryImages = [
     alt: "Science lab",
     category: "Science",
     description: "Professional-grade science lab for innovative research"
+  },
+  {
+    src: "/images/Sport-1.jpeg",
+    alt: "Sports Event",
+    category: "Sports",
+    description: "Exciting sports event bringing students together in competition and celebration"
+  },
+  {
+    src: "/images/sport-2.jpeg",
+    alt: "Sports Activity",
+    category: "Sports",
+    description: "Dynamic sports activities promoting fitness and team spirit among students"
+  },
+  {
+    src: "/images/sport-3.jpeg",
+    alt: "Sports Game",
+    category: "Sports",
+    description: "Thrilling sports matches showcasing student athletic talents and dedication"
   }
 ];
 

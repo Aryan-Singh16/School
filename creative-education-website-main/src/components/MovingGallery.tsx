@@ -40,6 +40,9 @@ const MovingGallery = () => {
       { src: '/images/science1.jpeg', alt: 'Science Lab 1' },
       { src: '/images/science2.jpeg', alt: 'Science Lab 2' },
       { src: '/images/science3.jpeg', alt: 'Science Lab 3' },
+      { src: '/images/Sport-1.jpeg', alt: 'Sports 1' },
+      { src: '/images/sport-2.jpeg', alt: 'Sports 2' },
+      { src: '/images/sport-3.jpeg', alt: 'Sports 3' },
     ];
 
     setImages(galleryImages);
