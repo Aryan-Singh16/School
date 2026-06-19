@@ -17,8 +17,8 @@ const Hero = () => {
     threshold: 0.3,
   });
 
-  // Array of background images with motivational quotes
-  const backgroundImages = [
+  // Original carousel images - we'll preload and fallback if any fail to load
+  const originalBackgroundImages = [
     {
       src: '/images/front1.jpeg',
       quote: "Education is the most powerful weapon which you can use to change the world."
@@ -28,18 +28,48 @@ const Hero = () => {
       quote: "The beautiful thing about learning is that no one can take it away from you."
     },
     {
-      src: '/images/campus.jpeg',
+      src: '/images/SCHOOL_BUILDING_BACK1.jpg',
       quote: "Education is not preparation for life; education is life itself."
     },
     {
-      src: '/images/campus2.jpeg',
+      src: '/images/SCHOOL_BUILDING_FRONT.jpg',
       quote: "Play is the highest form of research and the foundation of all learning."
     },
     {
-      src: '/images/lib.jpeg',
+      src: '/images/LIBRARY.jpg',
       quote: "A room without books is like a body without a soul."
     }
   ];
+
+  // Keep a stateful, validated list so we can swap any failed images to a fallback
+  const [backgroundImages, setBackgroundImages] = useState(originalBackgroundImages);
+
+  // Preload images and replace any that fail to load with a safe fallback
+  useEffect(() => {
+    const fallback = '/images/front.jpg';
+    originalBackgroundImages.forEach((img, idx) => {
+      const tester = new Image();
+      tester.src = img.src;
+      tester.onload = () => {
+        // success - ensure the image is present in state
+        setBackgroundImages((prev) => {
+          if (prev[idx] && prev[idx].src === img.src) return prev;
+          const copy = [...prev];
+          copy[idx] = img;
+          return copy;
+        });
+      };
+      tester.onerror = () => {
+        console.warn('Hero image failed to load, using fallback:', img.src);
+        setBackgroundImages((prev) => {
+          const copy = [...prev];
+          copy[idx] = { ...img, src: fallback };
+          return copy;
+        });
+      };
+    });
+    // no cleanup necessary for Image objects
+  }, []);
 
   // Auto-scroll images every 5 seconds
   useEffect(() => {
