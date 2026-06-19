@@ -172,44 +172,6 @@ const AnnouncementPopup = () => {
             </p>
           </div>
           
-          {/* Beautiful highlighted discount section */}
-          <div className="relative overflow-hidden bg-gradient-to-br from-orange-100 via-red-50 to-pink-100 border-2 border-orange-300 rounded-2xl p-4 sm:p-6 mb-6 shadow-lg">
-            {/* Decorative background pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 left-0 w-full h-full" 
-                   style={{backgroundImage: 'radial-gradient(circle at 20% 80%, rgba(255,165,0,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,69,0,0.3) 0%, transparent 50%)'}}>
-              </div>
-            </div>
-            
-            <div className="relative z-10">
-              <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3">
-                <span className="inline-block w-2 sm:w-3 h-2 sm:h-3 bg-orange-500 rounded-full animate-ping"></span>
-                <span className="text-orange-800 font-bold text-xs sm:text-sm uppercase tracking-wider bg-orange-200 px-3 sm:px-4 py-1 rounded-full shadow-sm">
-                  🎁 Limited Time Offer
-                </span>
-                <span className="inline-block w-2 sm:w-3 h-2 sm:h-3 bg-orange-500 rounded-full animate-ping"></span>
-              </div>
-              
-              <div className="text-center">
-                <p className="text-orange-900 font-bold text-lg sm:text-xl mb-2 leading-tight">
-                  Special Discount for admission
-                </p>
-                {/* <p className="text-orange-800 font-bold text-base sm:text-lg">
-                
-                </p> */}
-              </div>
-              
-              <div className="mt-4 flex items-center justify-center">
-                <div className="bg-orange-200 px-3 sm:px-4 py-2 rounded-full">
-                  <span className="text-orange-800 font-semibold text-xs sm:text-sm flex items-center gap-1">
-                    <Calendar className="h-3 sm:h-4 w-3 sm:w-4" />
-                    Hurry! Offer ends Soon.
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* School highlight */}
           <div className="text-center">
             <p className="text-gray-600 text-xs sm:text-sm font-medium">

@@ -81,31 +81,18 @@ const AnnouncementPopup = () => {
 
         {/* Content */}
         <div className="p-6">
-          <p className="text-gray-700 mb-4 leading-relaxed">
+          <p className="text-gray-700 mb-6 leading-relaxed text-center text-base">
             Admissions for the next academic year are now open. Secure your child's future with quality education.
           </p>
           
-          {/* Highlighted discount section */}
-          <div className="bg-gradient-to-r from-orange-50 to-red-50 border-l-4 border-orange-500 rounded-r-lg p-4 mb-4">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="inline-block w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
-              <span className="text-orange-800 font-semibold text-sm uppercase tracking-wide">
-                Limited Time Offer
-              </span>
-            </div>
-            <p className="text-orange-800 font-bold text-lg">
-              Special Discount for admission before 31st October 2025
-            </p>
-          </div>
-
-          {/* Call to action */}
-          <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-500">
-              📅 Valid until: Oct 31, 2025
-            </span>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
+          {/* Call to action section */}
+          <div className="space-y-4">
+            <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105">
               Learn More
             </button>
+            <p className="text-xs text-gray-500 text-center">
+              📅 Valid until: Oct 31, 2025
+            </p>
           </div>
         </div>
 
