@@ -8,9 +8,9 @@ import { Bell, CalendarClock, Info } from "lucide-react";
 const sampleNotices: NoticeProps[] = [
   {
     id: "1",
-    title: "Admission Open for 2026-27",
-    content: "Admissions for the next academic year are now open.",
-    date: "1 Dec, 2025",
+    title: "Admissions Open for 2027-2028",
+    content: "Admissions for the 2027–2028 academic year are now open. Special discount available for admissions completed before 14 December 2026.",
+    date: "14 Dec, 2026",
     category: "announcement"
   },
   {

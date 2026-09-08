@@ -4,20 +4,22 @@ import { X, Star, Sparkles } from 'lucide-react';
 const AnnouncementPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-
   useEffect(() => {
+    const showDelay = 500; // ms before showing
+    const visibleDuration = 5000; // visible time in ms (4s + 1s extra)
+
     // Show popup after a short delay for better UX
     const showTimer = setTimeout(() => {
       setIsVisible(true);
       setIsAnimating(true);
-    }, 500);
+    }, showDelay);
 
-    // Hide popup after 4 seconds
+    // Hide popup after the visible duration
     const hideTimer = setTimeout(() => {
       setIsAnimating(false);
       // Wait for animation to complete before removing from DOM
       setTimeout(() => setIsVisible(false), 300);
-    }, 4500);
+    }, showDelay + visibleDuration);
 
     return () => {
       clearTimeout(showTimer);
@@ -30,10 +32,10 @@ const AnnouncementPopup = () => {
     setTimeout(() => setIsVisible(false), 300);
   };
 
-  if (!isVisible) return null;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <>
+      {isVisible && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div 
         className={`absolute inset-0 bg-black transition-opacity duration-300 ${
@@ -74,7 +76,7 @@ const AnnouncementPopup = () => {
               </span>
             </div>
             <h2 className="text-xl font-bold">
-              Admission Open for 2026-27
+              Admissions Open for 2027–2028
             </h2>
           </div>
         </div>
@@ -82,7 +84,7 @@ const AnnouncementPopup = () => {
         {/* Content */}
         <div className="p-6">
           <p className="text-gray-700 mb-6 leading-relaxed text-center text-base">
-            Admissions for the next academic year are now open. Secure your child's future with quality education.
+            Admissions for the 2027–2028 academic year are now open. A special discount is available for admissions completed before 14 December 2026. Secure your child's place today.
           </p>
           
           {/* Call to action section */}
@@ -91,7 +93,7 @@ const AnnouncementPopup = () => {
               Learn More
             </button>
             <p className="text-xs text-gray-500 text-center">
-              📅 Valid until: Oct 31, 2025
+              📅 Discount valid until: 14 Dec, 2026
             </p>
           </div>
         </div>

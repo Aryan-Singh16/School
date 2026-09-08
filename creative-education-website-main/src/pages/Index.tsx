@@ -13,112 +13,97 @@ import Loader from '../components/Loader';
 import { Helmet } from 'react-helmet-async';
 import { X, Star, Sparkles, Calendar, Clock } from 'lucide-react';
 
-// Enhanced Announcement Popup Component with Visible Timer
+const AdmissionTicker = () => {
+  return (
+    <div className="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white overflow-hidden py-2 relative z-30">
+      <style>{`
+        @keyframes marquee-scroll {
+          0%   { transform: translateX(100%); }
+          100% { transform: translateX(-100%); }
+        }
+        .marquee-track {
+          display: inline-block;
+          white-space: nowrap;
+          animation: marquee-scroll 18s linear infinite;
+        }
+        .marquee-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+      <div className="marquee-track text-sm sm:text-base font-medium">
+        🎉 Admissions Open for 2027–2028 at ST. Maria School — ICSE (CISCE) Affiliated Institution — Special discount for admissions completed before 14 December 2026. Enroll now! 🎉
+      </div>
+    </div>
+  );
+};
+
 const AnnouncementPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(7); // 7 seconds countdown
-  const [progress, setProgress] = useState(100); // Progress percentage
+  const [timeLeft, setTimeLeft] = useState(8);
+  const [progress, setProgress] = useState(100);
 
   useEffect(() => {
-    // Show popup after loader completes + small delay
-    const showTimer = setTimeout(() => {
+    const showTimer = window.setTimeout(() => {
       setIsVisible(true);
       setIsAnimating(true);
-    }, 2500); // Shows after loader (2000ms) + 500ms delay
+    }, 2500);
 
-    return () => clearTimeout(showTimer);
+    return () => window.clearTimeout(showTimer);
   }, []);
 
   useEffect(() => {
     if (!isAnimating) return;
 
-    // Countdown and progress tracking
-    const interval = setInterval(() => {
-      setTimeLeft(prev => {
-        const newTime = prev - 0.1;
-        setProgress((newTime / 7) * 100);
-        
+    const total = 8;
+    const interval = window.setInterval(() => {
+      setTimeLeft((prev) => {
+        const newTime = Math.max(0, Number((prev - 0.1).toFixed(1)));
+        setProgress((newTime / total) * 100);
+
         if (newTime <= 0) {
           setIsAnimating(false);
-          setTimeout(() => setIsVisible(false), 300);
+          window.setTimeout(() => setIsVisible(false), 300);
           return 0;
         }
+
         return newTime;
       });
-    }, 100); // Update every 100ms for smooth animation
+    }, 100);
 
-    return () => clearInterval(interval);
+    return () => window.clearInterval(interval);
   }, [isAnimating]);
 
   const handleClose = () => {
     setIsAnimating(false);
-    setTimeout(() => setIsVisible(false), 300);
+    window.setTimeout(() => setIsVisible(false), 300);
   };
 
   if (!isVisible) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop */}
-      <div 
+      <div
         className={`absolute inset-0 bg-black transition-opacity duration-300 ${
           isAnimating ? 'opacity-50' : 'opacity-0'
         }`}
         onClick={handleClose}
       />
-      
-      {/* Enhanced Popup with visible timer */}
-      <div 
+
+      <div
         className={`relative bg-white rounded-3xl shadow-2xl max-w-sm sm:max-w-md lg:max-w-lg w-full mx-4 transform transition-all duration-300 ${
-          isAnimating 
-            ? 'scale-100 opacity-100 translate-y-0' 
-            : 'scale-95 opacity-0 translate-y-4'
+          isAnimating ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 translate-y-4'
         }`}
       >
-        {/* Enhanced Close button */}
         <button
           onClick={handleClose}
           className="absolute top-4 right-4 p-3 rounded-full bg-white bg-opacity-90 hover:bg-opacity-100 transition-all duration-200 z-20 shadow-lg hover:shadow-xl group"
+          aria-label="Close announcement"
         >
           <X className="h-5 w-5 text-gray-600 group-hover:text-gray-800 transition-colors" />
         </button>
 
-        {/* Circular Timer in top-left corner */}
-        {/* <div className="absolute top-4 left-4 z-20">
-          <div className="relative w-12 h-12 sm:w-14 sm:h-14"> */}
-            {/* Background circle */}
-            {/* <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-              <path
-                className="text-white opacity-30"
-                stroke="currentColor"
-                strokeWidth="3"
-                fill="none"
-                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-              /> */}
-              {/* Progress circle */}
-              {/* <path
-                className="text-white transition-all duration-100 ease-linear"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-                fill="none"
-                strokeDasharray={`${progress}, 100`}
-                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-            </svg> */}
-            {/* Timer number */}
-            {/* <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-white font-bold text-xs sm:text-sm">
-                {Math.ceil(timeLeft)}
-              </span>
-            </div>
-          </div>
-        </div>  */}
-
-        {/* Header with enhanced beauty */}
         <div className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white p-6 sm:p-8 rounded-t-3xl overflow-hidden">
-          {/* Animated background elements */}
           <div className="absolute top-0 right-0 opacity-30 animate-pulse">
             <Sparkles className="h-16 sm:h-20 w-16 sm:w-20" />
           </div>
@@ -126,9 +111,9 @@ const AnnouncementPopup = () => {
             <Star className="h-12 sm:h-16 w-12 sm:w-16" />
           </div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-10">
-            <div className="w-24 sm:w-32 h-24 sm:h-32 rounded-full border-4 border-white animate-spin" style={{animationDuration: '20s'}}></div>
+            <div className="w-24 sm:w-32 h-24 sm:h-32 rounded-full border-4 border-white animate-spin" style={{ animationDuration: '20s' }}></div>
           </div>
-          
+
           <div className="relative z-10 text-center pt-4">
             <div className="flex items-center justify-center gap-2 mb-3">
               <Star className="h-5 sm:h-6 w-5 sm:w-6 text-yellow-300 animate-pulse" />
@@ -138,41 +123,22 @@ const AnnouncementPopup = () => {
               <Star className="h-5 sm:h-6 w-5 sm:w-6 text-yellow-300 animate-pulse" />
             </div>
             <h2 className="text-xl sm:text-2xl font-bold mb-2 animate-pulse">
-              Admission Open for 2026-27
+              Admissions Open for 2027–2028
             </h2>
             <div className="w-20 sm:w-24 h-1 bg-yellow-300 mx-auto rounded-full"></div>
           </div>
         </div>
 
-        {/* Enhanced Content with better responsiveness */}
         <div className="p-6 sm:p-8">
-          {/* Timer indicator banner */}
-          {/* <div className="mb-4 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-3 sm:p-4">
-            <div className="flex items-center justify-center gap-2 text-blue-700">
-              <Clock className="h-4 w-4 animate-pulse" />
-              <span className="text-sm font-medium">
-                Auto-closing in {Math.ceil(timeLeft)} seconds
-              </span>
-            </div>
-            {/* Horizontal progress bar */}
-            {/* <div className="mt-2 w-full bg-blue-100 rounded-full h-2 overflow-hidden">
-              <div 
-                className="h-full bg-gradient-to-r from-blue-400 to-indigo-500 transition-all duration-100 ease-linear rounded-full"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-          </div> */}
-
           <div className="text-center mb-6">
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-              🌟 Admissions for the next academic year are now open! 
+              🌟 Admissions for the 2027–2028 academic year are now open!
             </p>
             <p className="text-gray-600 mt-2 text-sm sm:text-base">
-              Secure your child's future with quality ICSE education at ST. Maria School.
+              A special discount is available for admissions completed before 14 December 2026. Secure your child's place with ST. Maria School today.
             </p>
           </div>
-          
-          {/* School highlight */}
+
           <div className="text-center">
             <p className="text-gray-600 text-xs sm:text-sm font-medium">
               🏫 ICSE (CISCE) Affiliated Institution • Quality Education Since Years
@@ -180,21 +146,18 @@ const AnnouncementPopup = () => {
           </div>
         </div>
 
-        {/* Enhanced bottom progress bar with gradient and glow */}
         <div className="h-3 bg-gradient-to-r from-gray-100 to-gray-200 rounded-b-3xl overflow-hidden relative">
-          <div 
+          <div
             className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all ease-linear shadow-lg relative overflow-hidden"
-            style={{ 
+            style={{
               width: `${progress}%`,
               transitionDuration: '100ms',
               boxShadow: '0 0 15px rgba(168, 85, 247, 0.6)'
             }}
           >
-            {/* Animated shimmer effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 animate-pulse"></div>
           </div>
-          
-          {/* Floating timer badge */}
+
           <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
             <div className="bg-white rounded-full px-2 py-1 shadow-md border border-gray-200">
               <span className="text-xs font-bold text-gray-700">
@@ -303,6 +266,7 @@ const Index = () => {
 
       <div className={`transition-opacity duration-500 ${showLoader ? 'opacity-0' : 'opacity-100'}`}>
         <Header />
+        <AdmissionTicker />
         <main>
           <Hero />
           <About />
